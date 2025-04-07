@@ -2,14 +2,10 @@ import streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain.llms import CTransformers
 
-# Function to get response from LLama 2 model
-def getLLamaresponse(input_text, no_words, blog_style):
-    # LLaMA 2 model (loaded via Hugging Face)
-    llm = CTransformers(
-        model="TheBloke/Llama-2-7B-Chat-GGML",
-        model_file="llama-2-7b-chat.ggmlv3.q8_0.bin",
-        config={"max_new_tokens": 512, "temperature": 0.7}
-    )
+llm = CTransformers(
+    model="models/llama-2-7b-chat.ggmlv3.q8_0.bin",
+    config={"max_new_tokens": 512, "temperature": 0.7}
+)
 
     # Prompt Template
     template = """
